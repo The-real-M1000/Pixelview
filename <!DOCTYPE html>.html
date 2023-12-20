@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixelview</title>
+    <style>
+        body {
+            background: url('Bg.png') no-repeat center center fixed; 
+            background-size: cover;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #e5a00d;
+            font-size: 48px;
+            margin: 20px 0 0 0;
+            text-align: center;
+        }
+
+        #main-container {
+            background-color: rgba(14, 14, 14, 0.8); /* Fondo semitransparente */
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #buttons-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        #plex-button, #just-watch, #suggest-movie-button {
+            background-color: #e5a00d;
+            color: #202020;
+            padding: 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(45% - 10px);
+        }
+
+        #plex-button:hover, #just-watch:hover, #suggest-movie-button:hover {
+            background-color: #ffd34e;
+        }
+
+        #plex-subpage, #form-subpage {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #plex-subpage.active, #form-subpage.active {
+            display: block;
+        }
+
+        .hide-on-subpage {
+            display: block;
+        }
+
+        .hide-on-subpage.active {
+            display: none;
+        }
+
+        #copy-username, #copy-password, #go-plex {
+            background-color: #e5a00d;
+            color: #202020;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #copy-username:hover, #copy-password:hover, #go-plex:hover {
+            background-color: #ffd34e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Pixelview</h1>
+
+    <div id="main-container">
+        <!-- Espacio para el formulario (integra tu formulario aquí) -->
+
+        <div id="buttons-container">
+            <button id="plex-button" class="hide-on-subpage">Plex</button>
+            <button id="just-watch" class="hide-on-subpage">Ir a JustWatch</button>
+            <button id="suggest-movie-button" class="hide-on-subpage">Sugerir una película</button>
+
+            <div id="plex-subpage">
+                <p style="color: #e5a00d;">Usuario: pixelview</p>
+                <div>
+                    <button id="copy-username">Copiar Usuario</button>
+                </div>
+                <p style="color: #e5a00d;">Contraseña: Pixelview2023@</p>
+                <div>
+                    <button id="copy-password">Copiar Contraseña</button>
+                    <button id="go-plex">Ir a Plex</button>
+                </div>
+            </div>
+
+            <div id="form-subpage">
+                <!-- Aquí podrás añadir tu formulario personalizado más adelante -->
+                <iframe width="640px" height="480px" src="https://forms.office.com/r/UADxjbX7BU?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+                <p>¡</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('plex-button').addEventListener('click', function() {
+            document.getElementById('plex-subpage').classList.toggle('active');
+            toggleClassOnElements('.hide-on-subpage');
+        });
+
+        document.getElementById('suggest-movie-button').addEventListener('click', function() {
+            document.getElementById('form-subpage').classList.toggle('active');
+            toggleClassOnElements('.hide-on-subpage');
+        });
+
+        document.getElementById('copy-username').addEventListener('click', function() {
+            copyToClipboard('pixelview');
+        });
+
+        document.getElementById('copy-password').addEventListener('click', function() {
+            copyToClipboard('Pixelview2023@');
+        });
+
+        document.getElementById('go-plex').addEventListener('click', function() {
+            window.location.href = 'https://www.plex.tv/';
+        });
+
+        document.getElementById('just-watch').addEventListener('click', function() {
+            window.location.href = 'https://www.justwatch.com/';
+        });
+
+        function copyToClipboard(text) {
+            var input = document.createElement('textarea');
+            input.value = text;
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+        }
+
+        function toggleClassOnElements(className) {
+            var elements = document.querySelectorAll(className);
+            elements.forEach(function(element) {
+                element.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
+
