@@ -157,6 +157,12 @@
             document.execCommand('copy');
             document.body.removeChild(input);
         }
+        
+
+function openInNewTab(url) {
+    var newTab = window.open(url, '_blank');
+    newTab.focus();
+}
 
         function toggleClassOnElements(className) {
             var elements = document.querySelectorAll(className);
