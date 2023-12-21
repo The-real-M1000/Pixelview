@@ -6,7 +6,7 @@
     <title>Pixelview</title>
     <style>
         body {
-            background: url('Bg.png') no-repeat center center fixed; 
+            background: url('ejemplo.png') no-repeat center center fixed; 
             background-size: cover;
             color: #ffffff;
             font-family: Arial, sans-serif;
@@ -27,7 +27,7 @@
         }
 
         #main-container {
-            background-color: rgba(14, 14, 14, 0.8); /* Fondo semitransparente */
+            background-color: rgba(14, 14, 14, 0.8);
             padding: 20px;
             border-radius: 15px;
             text-align: center;
@@ -54,7 +54,18 @@
             width: calc(45% - 10px);
         }
 
-        #plex-button:hover, #just-watch:hover, #suggest-movie-button:hover {
+        #keep-updated-button {
+            background-color: #e5a00d;
+            color: #202020;
+            padding: 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(45% - 10px);
+        }
+
+        #plex-button:hover, #just-watch:hover, #suggest-movie-button:hover, #keep-updated-button:hover {
             background-color: #ffd34e;
         }
 
@@ -101,6 +112,7 @@
             <button id="plex-button" class="hide-on-subpage">Plex</button>
             <button id="just-watch" class="hide-on-subpage">Ir a JustWatch</button>
             <button id="suggest-movie-button" class="hide-on-subpage">Sugerir una película</button>
+            <button id="keep-updated-button"  class="hide-on-subpage">Mantenerme Actualizado</button>
 
             <div id="plex-subpage">
                 <p style="color: #e5a00d;">Usuario: pixelview</p>
@@ -116,7 +128,7 @@
 
             <div id="form-subpage">
                 <!-- Aquí podrás añadir tu formulario personalizado más adelante -->
-                <iframe width="640px" height="480px" src="https://forms.office.com/r/UADxjbX7BU?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
+                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1F59DZmkNY8xvcVwdP7iI5fnypckBLqsWcfsB0l8iTztBEQ/viewform?embedded=true" width="400" height="1009" frameborder="100" marginheight="0" marginwidth="0">Cargando…</iframe>
                 <p></p>
             </div>
         </div>
@@ -133,6 +145,10 @@
             toggleClassOnElements('.hide-on-subpage');
         });
 
+        document.getElementById('keep-updated-button').addEventListener('click', function() {
+            window.open('https://whatsapp.com/channel/0029VaCFNYbGU3BFMzYJpS1J', '_blank');
+        });
+
         document.getElementById('copy-username').addEventListener('click', function() {
             copyToClipboard('pixelview');
         });
@@ -142,11 +158,11 @@
         });
 
         document.getElementById('go-plex').addEventListener('click', function() {
-            window.location.href = 'https://app.plex.tv/desktop';
+            window.open('https://www.plex.tv/', '_blank');
         });
 
         document.getElementById('just-watch').addEventListener('click', function() {
-            window.location.href = 'https://www.justwatch.com/';
+            window.open('https://www.justwatch.com/', '_blank');
         });
 
         function copyToClipboard(text) {
@@ -157,12 +173,6 @@
             document.execCommand('copy');
             document.body.removeChild(input);
         }
-        
-
-function openInNewTab(url) {
-    var newTab = window.open(url, '_blank');
-    newTab.focus();
-}
 
         function toggleClassOnElements(className) {
             var elements = document.querySelectorAll(className);
@@ -173,4 +183,3 @@ function openInNewTab(url) {
     </script>
 </body>
 </html>
-
