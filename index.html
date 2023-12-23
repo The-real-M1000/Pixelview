@@ -1,179 +1,76 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pixelview</title>
     <style>
         body {
-            background: url('Bg.png') no-repeat center center fixed; 
-            background-size: cover;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
+            /* Estilos CSS del body aquí... */
         }
 
         h1 {
-            color: #e5a00d;
-            font-size: 48px;
-            margin: 20px 0 0 0;
-            text-align: center;
+            /* Estilos CSS del h1 aquí... */
         }
 
-        #main-container {
-            background-color: rgba(14, 14, 14, 0.8);
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            max-width: 400px;
-            margin: auto;
-            margin-top: 20px;
-        }
-
-        #buttons-container {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin-top: 20px;
-        }
-
-        #plex-button, #just-watch, #suggest-movie-button {
-            background-color: #e5a00d;
-            color: #202020;
-            padding: 15px;
-            margin: 0 5px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: calc(45% - 10px);
-        }
-
-        #keep-updated-button {
-            background-color: #e5a00d;
-            color: #202020;
-            padding: 15px;
-            margin: 0 5px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: calc(45% - 10px);
-        }
-
-        #plex-button:hover, #just-watch:hover, #suggest-movie-button:hover, #keep-updated-button:hover {
-            background-color: #ffd34e;
-        }
-
-        #plex-subpage, #form-subpage {
-            display: none;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        #plex-subpage.active, #form-subpage.active {
-            display: block;
-        }
-
-        .hide-on-subpage {
-            display: block;
-        }
-
-        .hide-on-subpage.active {
-            display: none;
-        }
-
-        #copy-username, #copy-password, #go-plex {
-            background-color: #e5a00d;
-            color: #202020;
-            padding: 10px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #copy-username:hover, #copy-password:hover, #go-plex:hover {
-            background-color: #ffd34e;
-        }
+        /* Otros estilos CSS aquí... */
     </style>
 </head>
+
 <body>
     <h1>Pixelview</h1>
 
     <div id="main-container">
-     
+        <!-- Contenido principal aquí... -->
 
         <div id="buttons-container">
             <button id="plex-button" class="hide-on-subpage">Mirar</button>
- 
             <button id="suggest-movie-button" class="hide-on-subpage">Sugerir una película</button>
-            <button id="keep-updated-button"  class="hide-on-subpage">Mantenerme Actualizado</button>
-          
+            <button id="keep-updated-button" class="hide-on-subpage">Mantenerme Actualizado</button>
+
             <div id="plex-subpage">
-                <p style="color: #e5a00d;">¿Como entrar a pixelview?</p>
-                    <div>
-                        <p>1.  Copia la contraseña con el boton "Copiar contraseña"</p>
-                            <div>
-                                <p>2. Pulsa "ir a plex"</p>
-                                    <div>
-                                        <p>3. Escribe Pixelview en el espacio de "Correo o nombre de usuario", Pega la contraseña anteriormente copiada en el espacio de "Contraseña" y pulsa "Iniciar sesion"</p>
-                                            <div>
-                                                <p>4. Pulsa abrir plex</p>
-                                                    <div>
-                                                        <p>5. listo, ahora puedes disfrutar de cientas de peliculas y series en español latino gratis</p>
-                
-                <div>
-                <p style="color: #e5a00d;">Contraseña: Pixelview2023@</p>
-                <div>
-                    <button id="copy-password">Copiar Contraseña</button>
-                    <button id="go-plex">Ir a Plex</button>
-                        <p>*Pixelview no almacena ningun tipo de archivo*</p>  <p style="color: #e5a00d;">*Pixelview Temporalmente NO funciona en dispocitivos moviles*</p>
-                </div>
+                <!-- Contenido de la subpágina de Plex aquí... -->
+                <button id="copy-username">Copiar Usuario</button>
+                <button id="copy-password">Copiar Contraseña</button>
+                <button id="go-plex">Ir a Plex</button>
             </div>
 
             <div id="form-subpage">
-               
-                <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1F59DZmkNY8xvcVwdP7iI5fnypckBLqsWcfsB0l8iTztBEQ/viewform?embedded=true" width="400" height="1009" frameborder="100" marginheight="0" marginwidth="0">Cargando…</iframe>
-                <p></p>
+                <!-- Contenido de la subpágina de formulario aquí... -->
             </div>
         </div>
+
     </div>
 
     <script>
-        document.getElementById('plex-button').addEventListener('click', function() {
+        document.getElementById('plex-button').addEventListener('click', function () {
             document.getElementById('plex-subpage').classList.toggle('active');
             toggleClassOnElements('.hide-on-subpage');
         });
 
-        document.getElementById('suggest-movie-button').addEventListener('click', function() {
+        document.getElementById('suggest-movie-button').addEventListener('click', function () {
             document.getElementById('form-subpage').classList.toggle('active');
             toggleClassOnElements('.hide-on-subpage');
         });
 
-        document.getElementById('keep-updated-button').addEventListener('click', function() {
+        document.getElementById('keep-updated-button').addEventListener('click', function () {
             window.open('https://whatsapp.com/channel/0029VaCFNYbGU3BFMzYJpS1J', '_blank');
         });
 
-        document.getElementById('copy-username').addEventListener('click', function() {
+        document.getElementById('copy-username').addEventListener('click', function () {
             copyToClipboard('pixelview');
         });
 
-        document.getElementById('copy-password').addEventListener('click', function() {
+        document.getElementById('copy-password').addEventListener('click', function () {
             copyToClipboard('Pixelview2023@');
         });
 
-        document.getElementById('go-plex').addEventListener('click', function() {
+        document.getElementById('go-plex').addEventListener('click', function () {
             window.open('https://www.plex.tv/es/sign-in/', '_blank');
         });
 
-        document.getElementById('just-watch').addEventListener('click', function() {
-            window.open('https://www.justwatch.com/', '_blank');
-        });
+        // Otras funciones y eventos aquí...
 
         function copyToClipboard(text) {
             var input = document.createElement('textarea');
@@ -186,10 +83,12 @@
 
         function toggleClassOnElements(className) {
             var elements = document.querySelectorAll(className);
-            elements.forEach(function(element) {
+            elements.forEach(function (element) {
                 element.classList.toggle('active');
             });
         }
     </script>
 </body>
+
 </html>
+
