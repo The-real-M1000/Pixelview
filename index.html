@@ -99,6 +99,7 @@
             <button id="plex-button" class="hide-on-subpage">Sugiere una película</button>
             <button id="suggest-movie-button" class="hide-on-subpage">Mirar</button>
             <button id="keep-updated-button" class="hide-on-subpage">Mantenerme Actualizado</button>
+            <button id="correo">Reportar un error</button>
 
             <div id="plex-subpage" class="hide-on-subpage">
                 <p style="color: #e5a00d;">¿Cómo entrar a pixelview?</p>
@@ -150,6 +151,11 @@
         document.getElementById('go-plex').addEventListener('click', function() {
             window.open('https://www.plex.tv/es/sign-in/', '_blank');
         });
+
+        document.getElementById('correo').addEventListener('click', function() {
+            window.open('mailto:streaming.pixelview@gmail.com?', '_blank');
+        });
+
 
         function copyToClipboard(text) {
             var input = document.createElement('textarea');
